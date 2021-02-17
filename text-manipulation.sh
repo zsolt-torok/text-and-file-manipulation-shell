@@ -14,6 +14,8 @@ jq '.employees[].firstName'  employees.json
 
 # The first name of each employee followed by their phone number(s) from the file employees.json is printed.
 jq '.employees[] | "\(.firstName) \(.phoneNumbers[].number)"' employees.json
+jq '.employees[] | .firstName,.phoneNumbers' employees.json
 
 # The first name of each employee and only their mobile phone number(s) from the file employees.json is printed.
+jq -r '.employees | .[] | [.firstName,(.phoneNumbers[] | select(.type=="mobile").number)] | @tsv' employees.json
 

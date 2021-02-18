@@ -7,6 +7,7 @@ sleep 3
 clear
 echo "awk -F'\"' '$0=$2' access.log  | grep POST"
 sleep 2
+clear
 awk -F'"' '$0=$2' access.log  | grep POST | head -n 5
 sleep 3
 clear

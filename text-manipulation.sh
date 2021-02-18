@@ -5,7 +5,7 @@ sed -e 's/[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}/xxx.xxx.xxx/g' 
 awk -F'"' '$0=$2' access.log  | grep POST
 
 # Lines between line 11 and line 20 of the file access.log are printed to stdout.
-sed -n '800,900p' file.txt
+sed -n '11,20p' access.log
 
 
 
@@ -13,7 +13,6 @@ sed -n '800,900p' file.txt
 jq '.employees[].firstName'  employees.json
 
 # The first name of each employee followed by their phone number(s) from the file employees.json is printed.
-jq '.employees[] | "\(.firstName) \(.phoneNumbers[].number)"' employees.json
 jq '.employees[] | .firstName,.phoneNumbers' employees.json
 
 # The first name of each employee and only their mobile phone number(s) from the file employees.json is printed.
